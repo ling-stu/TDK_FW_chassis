@@ -1,0 +1,7 @@
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/c++/12.3.1/cmath:241:3:constexpr float std::fabs(float)	1
+../Core/Src/DC_motor.cpp:4:6:void DC_motor::setup()	1
+../Core/Src/DC_motor.cpp:10:6:void DC_motor::setspeed(float)	1
+../Core/Src/DC_motor.cpp:14:6:void DC_motor::set_pid(float, float)	1
+../Core/Src/DC_motor.cpp:19:6:void DC_motor::update_speed(int)	1
+../Core/Src/DC_motor.cpp:25:6:void DC_motor::PI_run(int)	10
+../Core/Src/DC_motor.cpp:51:7:float DC_motor::get_speed()	1
