@@ -1,0 +1,5 @@
+../Core/Src/trace.cpp:41:6:void path_setup()	1
+../Core/Src/trace.cpp:46:6:void weight()	1
+../Core/Src/trace.cpp:60:6:void path()	1
+../Core/Src/trace.cpp:101:6:void path_moveto(float)	2
+../Core/Src/trace.cpp:115:6:bool line_check(int)	23

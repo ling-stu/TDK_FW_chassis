@@ -7,6 +7,7 @@
 
 /* main.cpp */
 #include "chassis.h"
+#include "trace.h"
 #include "mainpp.h"
 #include "stm32f4xx_hal.h"
 #include "DC_motor.h"
@@ -38,6 +39,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
     	{
 //    		test_3(0);
     		chassis_update_speed(0.0,0.0,0.0);
+
     	}
 
     }
@@ -45,15 +47,21 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
         HAL_IncTick();
       }
 }
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if (GPIO_Pin == GPIO_PIN_4){
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4)==GPIO_PIN_RESET) on = 1;
+		else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4)==GPIO_PIN_SET) on = 0;
+	}
 
+}
 void main_function() {
     //HAL_Init();
     chassis_setup();  // 初始化四輪的 encoder 與 PWM
+    path_setup();
     //pid_setup();
     while (1) {
-    	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4)==GPIO_PIN_RESET) on = 1;
-    	else on = 0;
-    	HAL_Delay(500);
+
     }
 }
 
