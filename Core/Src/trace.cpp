@@ -12,7 +12,7 @@
 
 extern ADC_HandleTypeDef hadc2;
 extern float map_x, map_y, last_x, last_y;
-extern float cmd_v_x, cmd_v_y, cmd_v_w;
+float cmd_v_x, cmd_v_y, cmd_v_w;
 extern bool arrive;
 
 #define normal_Speed 0.5
@@ -54,6 +54,7 @@ void weight() {
     cmd_v_y = normal_Speed; // Forward speed (positive: forward)
     cmd_v_x = 0;            // No strafe (add logic here if you want to strafe)
     cmd_v_w = -(weight_err * w_kp + weight_change * w_kd); // Rotation correction
+    chassis_update_speed(cmd_v_x,cmd_v_y,cmd_v_w);
 }
 
 //motor_speed[0]:right motor speed, motor_speed[1]:left motor speed
