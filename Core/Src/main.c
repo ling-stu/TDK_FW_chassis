@@ -277,7 +277,7 @@ static void MX_ADC2_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
-  sConfig.Channel = ADC_CHANNEL_9;
+  sConfig.Channel = ADC_CHANNEL_10;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
@@ -287,7 +287,6 @@ static void MX_ADC2_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
-  sConfig.Channel = ADC_CHANNEL_8;
   sConfig.Rank = 2;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
@@ -296,7 +295,7 @@ static void MX_ADC2_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
-  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Channel = ADC_CHANNEL_11;
   sConfig.Rank = 3;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
@@ -860,7 +859,18 @@ void StartDefaultTask(void *argument)
   * @param  htim : TIM handle
   * @retval None
   */
-
+//void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+//{
+//  /* USER CODE BEGIN Callback 0 */
+//////
+//  /* USER CODE END Callback 0 */
+//  if (htim->Instance == TIM6) {
+//    HAL_IncTick();
+//  }
+//  /* USER CODE BEGIN Callback 1 */
+//////
+//  /* USER CODE END Callback 1 */
+//}
 
 /**
   * @brief  This function is executed in case of error occurrence.
