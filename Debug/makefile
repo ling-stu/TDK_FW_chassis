@@ -62,34 +62,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := yiao_446
+BUILD_ARTIFACT_NAME := TDK_FW_chassis
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-yiao_446.elf \
+TDK_FW_chassis.elf \
 
 MAP_FILES += \
-yiao_446.map \
+TDK_FW_chassis.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-yiao_446.list \
+TDK_FW_chassis.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: yiao_446.elf secondary-outputs
+main-build: TDK_FW_chassis.elf secondary-outputs
 
 # Tool invocations
-yiao_446.elf yiao_446.map: $(OBJS) $(USER_OBJS) C:\Users\Ling\STM32CubeIDE\workspace_1.17.0\yiao_446\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "yiao_446.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Ling\STM32CubeIDE\workspace_1.17.0\yiao_446\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="yiao_446.map" -Wl,--gc-sections -static -L"C:\Users\Ling\STM32CubeIDE\workspace_1.17.0\yiao_446\micro_ros_stm32cubemx_utils\microros_static_library_ide\libmicroros" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+TDK_FW_chassis.elf TDK_FW_chassis.map: $(OBJS) $(USER_OBJS) C:\Users\Ling\STM32CubeIDE\workspace_1.17.0\TDK_FW_chassis\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "TDK_FW_chassis.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Ling\STM32CubeIDE\workspace_1.17.0\TDK_FW_chassis\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TDK_FW_chassis.map" -Wl,--gc-sections -static -L"C:\Users\Ling\STM32CubeIDE\workspace_1.17.0\TDK_FW_chassis\micro_ros_stm32cubemx_utils\microros_static_library_ide\libmicroros" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -98,14 +98,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-yiao_446.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "yiao_446.list"
+TDK_FW_chassis.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TDK_FW_chassis.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout yiao_446.elf yiao_446.list yiao_446.map
+	-$(RM) TDK_FW_chassis.elf TDK_FW_chassis.list TDK_FW_chassis.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
