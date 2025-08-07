@@ -11,4 +11,4 @@
 ../Core/Src/main.c:702:13:MX_DMA_Init	1
 ../Core/Src/main.c:727:13:MX_GPIO_Init	1
 ../Core/Src/main.c:792:6:StartDefaultTask	3
-../Core/Src/main.c:869:6:Error_Handler	1
+../Core/Src/main.c:880:6:Error_Handler	1

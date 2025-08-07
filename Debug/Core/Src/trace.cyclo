@@ -1,5 +1,5 @@
-../Core/Src/trace.cpp:41:6:void path_setup()	1
-../Core/Src/trace.cpp:46:6:void weight()	1
-../Core/Src/trace.cpp:61:6:void path()	1
-../Core/Src/trace.cpp:102:6:void path_moveto(float)	2
-../Core/Src/trace.cpp:116:6:bool line_check(int)	23
+../Core/Src/trace.cpp:42:6:void path_setup()	1
+../Core/Src/trace.cpp:47:6:void weight()	1
+../Core/Src/trace.cpp:64:6:void path()	1
+../Core/Src/trace.cpp:105:6:void path_moveto(float)	2
+../Core/Src/trace.cpp:119:6:bool line_check(int)	23

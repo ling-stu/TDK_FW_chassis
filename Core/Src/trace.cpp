@@ -15,7 +15,7 @@ extern float map_x, map_y, last_x, last_y;
 float cmd_v_x, cmd_v_y, cmd_v_w;
 extern bool arrive;
 
-#define normal_Speed 0.5
+#define normal_Speed 1
 #define w_kp 0.21
 #define w_kd 0
 #define boundry 1000
@@ -23,7 +23,8 @@ extern bool arrive;
 
 uint16_t adcRead[7];
 int   check = 0;
-float weight_err;
+float temp = 0;
+float weight_err = 0;
 float weight_lasttime = 0;
 float weight_change = 0;
 float tempSpeed[2];
@@ -45,16 +46,18 @@ void path_setup(){
 }
 void weight() {
     // Calculate line following error (P and D)
-    weight_err = (float)(-3*adcRead[0] - adcRead[1] + adcRead[3] + 3*adcRead[4]) /
-                 (adcRead[0] + adcRead[1] + adcRead[2] + adcRead[3] + adcRead[4]);
+    weight_err = ((float)(-3*adcRead[0] - adcRead[1] + adcRead[3] + 3*adcRead[4])
+    				/(adcRead[0] + adcRead[1] + adcRead[2] + adcRead[3] + adcRead[4]));
     weight_change = weight_err - weight_lasttime;
     weight_lasttime = weight_err;
 
     // For mecanum: output chassis velocity vector
     cmd_v_y = normal_Speed; // Forward speed (positive: forward)
     cmd_v_x = 0;            // No strafe (add logic here if you want to strafe)
-    cmd_v_w = -(weight_err * w_kp + weight_change * w_kd); // Rotation correction
-    chassis_update_speed(cmd_v_x,cmd_v_y,cmd_v_w);
+    cmd_v_w = (weight_err * w_kp + weight_change * w_kd); // Robtion correction//    temp = (weight_err * w_kp + weight_change * w_kd); // Rotation correction
+    temp = cmd_v_w;
+    chassis_update_speed(0,1,cmd_v_w); //positive:counterclockwise
+    check++;
 }
 
 //motor_speed[0]:right motor speed, motor_speed[1]:left motor speed

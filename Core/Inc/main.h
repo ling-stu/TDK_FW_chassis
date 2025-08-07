@@ -59,23 +59,21 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define trace_3_Pin GPIO_PIN_0
-#define trace_3_GPIO_Port GPIOC
-#define trace_4_Pin GPIO_PIN_2
-#define trace_4_GPIO_Port GPIOC
-#define trace_5_Pin GPIO_PIN_3
-#define trace_5_GPIO_Port GPIOC
+#define Trace_2_Pin GPIO_PIN_0
+#define Trace_2_GPIO_Port GPIOC
+#define Trace_3_Pin GPIO_PIN_1
+#define Trace_3_GPIO_Port GPIOC
+#define Trace_4_Pin GPIO_PIN_2
+#define Trace_4_GPIO_Port GPIOC
+#define Trace_5_Pin GPIO_PIN_3
+#define Trace_5_GPIO_Port GPIOC
 #define switch_Pin GPIO_PIN_4
 #define switch_GPIO_Port GPIOA
 #define switch_EXTI_IRQn EXTI4_IRQn
-#define trace_6_Pin GPIO_PIN_4
-#define trace_6_GPIO_Port GPIOC
-#define trace_7_Pin GPIO_PIN_5
-#define trace_7_GPIO_Port GPIOC
-#define trace_2_Pin GPIO_PIN_0
-#define trace_2_GPIO_Port GPIOB
-#define trace_1_Pin GPIO_PIN_1
-#define trace_1_GPIO_Port GPIOB
+#define Trace_6_Pin GPIO_PIN_4
+#define Trace_6_GPIO_Port GPIOC
+#define Trace_7_Pin GPIO_PIN_5
+#define Trace_7_GPIO_Port GPIOC
 #define FR_dir_Pin GPIO_PIN_12
 #define FR_dir_GPIO_Port GPIOB
 #define BR_dir_Pin GPIO_PIN_14
