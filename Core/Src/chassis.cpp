@@ -8,6 +8,12 @@
 /* chassis.cpp */
 #include "chassis.h"
 
+
+float _v1_ = 0;
+float _v2_ = 0;
+float _v3_ = 0;
+float _v4_ = 0;
+
 //extern TIM_HandleTypeDef htim1;
 //extern TIM_HandleTypeDef htim2;
 //extern TIM_HandleTypeDef htim3;
@@ -24,7 +30,7 @@ const float pi = 3.1415926f;
 int try_pwm = 300;
 float kp[4]={2.1,1.2,1.2,1.2},ki[4]={25,20,20,25};//3.0,0.001
 int range[4]={35,32,40,60};
-
+float temp2 = 0;
 DC_motor wheel_FR(&htim1, GPIOB, GPIO_PIN_12, &htim8, TIM_CHANNEL_1);//encoder timer, dir port, dir pin, pwm timer, pwm channel
 DC_motor wheel_FL(&htim2, GPIOA, GPIO_PIN_12, &htim8, TIM_CHANNEL_2);
 DC_motor wheel_BR(&htim3, GPIOB, GPIO_PIN_14, &htim8, TIM_CHANNEL_3);
@@ -88,6 +94,10 @@ void mecan_IK_transform(float _v_x, float _v_y, float _v_w) {
     wheel_FL.setspeed(v2);
     wheel_BR.setspeed(v3);
     wheel_BL.setspeed(v4);
+    _v1_ = v1;
+    _v2_ = v2;
+    _v3_ = v3;
+    _v4_ = v4;
 }
 
 void mecan_FK_transform() {
@@ -124,11 +134,12 @@ void chassis_update_speed(float _v_x, float _v_y, float _v_w) {
     wheel_BL.update_speed(-1);//-1，改
 
     mecan_IK_transform(_v_x, _v_y, _v_w);
-
+    temp2 = _v_w;
     wheel_FR.PI_run(0);
     wheel_FL.PI_run(1);
     wheel_BL.PI_run(3);
     wheel_BR.PI_run(2);
+
 
     mecan_FK_transform();
 

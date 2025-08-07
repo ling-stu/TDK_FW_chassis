@@ -92,11 +92,11 @@ static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
-static void MX_TIM4_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_TIM8_Init(void);
 static void MX_ADC2_Init(void);
+static void MX_TIM4_Init(void);
 void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -141,11 +141,11 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
-  MX_TIM4_Init();
   MX_TIM1_Init();
   MX_TIM5_Init();
   MX_TIM8_Init();
   MX_ADC2_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   main_function();
   /* USER CODE END 2 */
@@ -277,7 +277,7 @@ static void MX_ADC2_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
-  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
@@ -287,6 +287,7 @@ static void MX_ADC2_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
+  sConfig.Channel = ADC_CHANNEL_10;
   sConfig.Rank = 2;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
@@ -862,13 +863,13 @@ void StartDefaultTask(void *argument)
 //void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //{
 //  /* USER CODE BEGIN Callback 0 */
-//////
+////////
 //  /* USER CODE END Callback 0 */
 //  if (htim->Instance == TIM6) {
 //    HAL_IncTick();
 //  }
 //  /* USER CODE BEGIN Callback 1 */
-//////
+////////
 //  /* USER CODE END Callback 1 */
 //}
 
